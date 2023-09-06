@@ -1,0 +1,16 @@
+#!/bin/bash
+#{
+echo "This is Bash"
+exit
+#}
+
+=begin
+@echo off
+echo This is CMD
+exit /B
+=end
+
+puts "This is Ruby" if RUBY_VERSION
+
+# the following line for python must be last due to syntax constraints
+print("This is Python") if __name__ == '__main__'
