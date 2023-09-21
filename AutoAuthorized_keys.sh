@@ -1,5 +1,4 @@
 #!/bin/bash
-# a file that loops through any authorized keys file it can reach, and attempts to ssh into them. 
 
 # Loop through each user's home directory
 for dir in /home/*; do
@@ -8,13 +7,10 @@ for dir in /home/*; do
     # Extract hostnames from the authorized_keys file
     awk '{print $3}' "$dir/.ssh/authorized_keys" | while read -r hostname; do
       if [[ ! -z "$hostname" ]]; then
-        # Attempt to SSH into each hostname
-        ssh -o BatchMode=yes -o ConnectTimeout=5 "$hostname" exit &>/dev/null
-        if [[ $? -eq 0 ]]; then
-          echo "Successfully connected to $hostname"
-        else
-          echo "Failed to connect to $hostname"
-        fi
+        # Open an SSH connection and leave it open
+        ssh -o BatchMode=yes -o ConnectTimeout=5 -f -N "$hostname" &
+        pid=$!
+        echo "SSH connection to $hostname started with PID $pid"
       fi
     done
   fi
