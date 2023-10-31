@@ -1,0 +1,6 @@
+<ruby>
+File.readlines('path/2/cvelist.txt').each do |line|
+  run_single("search cve:#{line.strip}")
+end
+# run this script with msfconsole -r path/2/filename.rc
+</ruby>
