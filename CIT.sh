@@ -239,6 +239,15 @@ function regex_guide() {
     echo "Regex modifiers:"
     echo "'i' - Case insensitive search."
     echo "'g' - Global search (find all matches rather than stopping after the first match)."
+    echo ------------------------------------------------------------------------------------- 
+    echo "1. '^[Ee]rror:.*$' - Matches lines that start with 'Error:' or 'error:' followed by any characters."
+    echo "2. '\\b[0-9]{3}\\b' - Matches any three-digit number as a whole word."
+    echo "3. 'failed.*(user|login)' - Matches 'failed' followed by any characters, then either 'user' or 'login'."
+    echo "4. '^\\s*\\[.*?\\]\\s*' - Matches lines starting with optional whitespace, followed by text in square brackets."
+    echo "5. 'timeout after \\d+ seconds' - Matches 'timeout after ' followed by one or more digits and ' seconds'."
+    echo "6. '(\\d{2}/\\d{2}/\\d{4}).*(ERROR|WARNING)' - Matches a date in the format dd/mm/yyyy followed by either 'ERROR' or 'WARNING'."
+
+
 }
 
 function log_analysis() {
