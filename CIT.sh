@@ -219,10 +219,36 @@ function file_decryption() {
 
 # Log Analysis Function
 # Searches for a specific pattern in a given log file
+function regex_guide() {
+    echo "Mid-Level Regex Guide:"
+    echo "1. '.' - Matches any character except newline."
+    echo "2. '*' - Matches 0 or more occurrences of the preceding character."
+    echo "3. '+' - Matches 1 or more occurrences of the preceding character."
+    echo "4. '?' - Matches 0 or 1 occurrence of the preceding character."
+    echo "5. '^' - Matches the start of a line."
+    echo "6. '$' - Matches the end of a line."
+    echo "7. '[abc]' - Matches any one of the characters a, b, or c."
+    echo "8. '[^abc]' - Matches any character not in the list a, b, or c."
+    echo "9. '[a-z]' - Matches any character in the range a to z."
+    echo "10. '\\d' - Matches any digit. Equivalent to [0-9]."
+    echo "11. '\\w' - Matches any word character (alphanumeric & underscore)."
+    echo "12. '\\s' - Matches any whitespace character (spaces, tabs)."
+    echo "13. '(abc)' - Matches the exact sequence 'abc'."
+    echo "14. '(a|b)' - Matches either 'a' or 'b'."
+    echo "15. '\\b' - Matches word boundaries."
+    echo "Regex modifiers:"
+    echo "'i' - Case insensitive search."
+    echo "'g' - Global search (find all matches rather than stopping after the first match)."
+}
+
 function log_analysis() {
-    echo "Enter the log file path:"
+    echo "Enter the log file path (or type '?' for regex guide):"
     read log_file
 
+    if [ "$log_file" == "?" ]; then
+        regex_guide
+        return
+    fi
     # Check if the log file exists
     if [ ! -f "$log_file" ]; then
         echo "Log file not found: $log_file"
