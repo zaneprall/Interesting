@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Comprehensive InfoSec Toolkit
