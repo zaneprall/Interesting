@@ -43,18 +43,28 @@ function network_info() {
 
 # System Monitoring Function
 function system_monitoring() {
-    echo "Starting system monitoring..."
+    echo "Starting system monitoring... (press Ctrl+C to stop)"
+    trap 'tput cnorm; clear; return' SIGINT
+    tput civis # Hide cursor
+
     while true; do
-        echo "-----"
+        clear # Clear the screen for full-screen display
+        echo "----- System Monitoring -----"
+        date "+%Y-%m-%d %H:%M:%S" # Display current date and time
+
         echo "Memory Usage:"
         free -h
+
         echo "Disk Usage:"
         df -h
+
         echo "CPU Load:"
         top -bn1 | grep load
-        sleep 30 # Adjust the sleep duration as needed
+
+        sleep 5 # Refresh every 5 seconds
     done
 }
+
 
 # File Encryption Function
 # Encrypts a specified file using OpenSSL with AES-256 encryption
