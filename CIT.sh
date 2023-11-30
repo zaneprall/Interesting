@@ -220,7 +220,7 @@ function file_decryption() {
 # Log Analysis Function
 # Searches for a specific pattern in a given log file
 function regex_guide() {
-    echo "Mid-Level Regex Guide:"
+    echo "Idiot's Regex Guide:"
     echo "1. '.' - Matches any character except newline."
     echo "2. '*' - Matches 0 or more occurrences of the preceding character."
     echo "3. '+' - Matches 1 or more occurrences of the preceding character."
